@@ -12,7 +12,7 @@ compinit
 # End of lines added by compinstall
 
 export EDITOR="/usr/bin/vim"
-export ZSH=/home/filip/.oh-my-zsh
+export ZSH="~/.oh-my-zsh"
 
 plugins=(
   git

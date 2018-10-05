@@ -32,7 +32,8 @@ set suffixes-=.h
 set suffixes-=.obj
 set number
 set numberwidth=5
-set cursorline set relativenumber
+set cursorline
+set relativenumber
 
 syntax on
 

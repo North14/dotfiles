@@ -2,16 +2,6 @@ if &compatible
   set nocompatible
 endif
 
-set backspace=indent,eol,start
-set ruler
-set suffixes+=.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
-set suffixes-=.h
-set suffixes-=.obj
-set number
-syntax on
-
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,9 +13,31 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 " syntax checker
 Plugin 'scrooloose/syntastic'
+" autocomplete
+" Plugin 'valloric/youcompleteme'
+" Completes ( with )
+Plugin 'jiangmiao/auto-pairs'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+set autoindent
+set cindent
+set nowrap
+set backspace=indent,eol,start
+set ruler
+set suffixes+=.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
+set suffixes-=.h
+set suffixes-=.obj
+set number
+set numberwidth=5
+set cursorline set relativenumber
+
+syntax on
+
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 filetype plugin indent on    " required
 
 " see :h vundle for more details or wiki for FAQ
@@ -67,3 +79,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+" let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+let g:ycm_global_ycm_extra_con = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

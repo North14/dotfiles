@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This program copies the dotfiles from directory to your dst_dir."""
+"""This program copies the dotfiles from this directory to your your home directory"""
 
 import shutil
 import os
@@ -7,7 +7,7 @@ import os
 
 def copy_file():
     """This copies the .dotfiles in current directory to ~/"""
-    dst_dir = (os.getenv("HOME") + "/test/")
+    dst_dir = (os.getenv("HOME") + "/")
     dotfiles = [".vimrc", ".Xresources", ".zshrc"]
     yes = {'Y', 'y'}
     no = {'N', 'n'}
@@ -30,7 +30,7 @@ def copy_directory():
     yes = {'Y', 'y'}
     no = {'N', 'n'}
     src_dir = (".config/")
-    dst_dir = (os.getenv("HOME") + "/test/.config/")
+    dst_dir = (os.getenv("HOME") + "/.config/")
     dotfiles = os.listdir(src_dir)
     print(dst_dir)
     for dotfile in dotfiles:

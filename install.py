@@ -34,14 +34,16 @@ def copy_directory():
     dotfiles = os.listdir(src_dir)
     print(dst_dir)
     for dotfile in dotfiles:
+        src_file = os.path.join(src_dir, dotfile)
+        dst_file = os.path.join(dst_dir, dotfile)
         print("Copy", dotfile, "?")
         while True:
             menu = input("Y/y for yes, N/n for no: ")
             if menu in yes:
                 print("copying", dotfile)
-                if os.path.exists((dst_dir + dotfile)):
+                if os.path.exists(dst_file):
                     shutil.rmtree(dotfile, dst_dir)
-                shutil.copytree((src_dir + dotfile), (dst_dir + dotfile))
+                shutil.copytree(src_file, dst_file)
                 break
             elif menu in no:
                 print("Won't copy", dotfile)

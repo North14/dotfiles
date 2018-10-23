@@ -16,10 +16,8 @@ export ZSH="/home/username/.oh-my-zsh"
 
 plugins=(
   git
+  git-extras
   archlinux
-  common-aliases
-  systemd
-  web-search
 )
 ZSH_THEME="clean"
 source $ZSH/oh-my-zsh.sh

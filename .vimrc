@@ -14,7 +14,7 @@ Plugin 'tpope/vim-fugitive'
 " syntax checker
 Plugin 'scrooloose/syntastic'
 " autocomplete
-" Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme'
 " Completes ( with )
 Plugin 'jiangmiao/auto-pairs'
 
@@ -81,6 +81,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 " let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 let g:ycm_global_ycm_extra_con = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

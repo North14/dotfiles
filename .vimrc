@@ -17,10 +17,15 @@ Plugin 'scrooloose/syntastic'
 Plugin 'valloric/youcompleteme'
 " Completes ( with )
 Plugin 'jiangmiao/auto-pairs'
+" Nord theme for vim
+Plugin 'arcticicestudio/nord-vim'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+" set Nord as colorscheme
+colorscheme nord
 
 set autoindent
 set cindent

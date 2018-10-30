@@ -85,6 +85,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_sh_checkers = ['shellcheck']
+
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 " let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']

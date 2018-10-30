@@ -22,4 +22,4 @@ plugins=(
 ZSH_THEME="clean"
 source $ZSH/oh-my-zsh.sh
 
-export PATH="~/scripts/commands/:$PATH"
+export PATH="/home/username/scripts/commands/:$PATH"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 src="$PWD""/"
-dst="$HOME""/test/"
+dst="$HOME""/"
 files=$(cat files)
 
 for file in $files

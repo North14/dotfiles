@@ -16,7 +16,7 @@ general {
 
 order += "cpu_usage"
 # order += "load"
-order += "disk /"
+order += "disk /home"
 order += "disk /mnt/samba"
 order += "wireless _first_"
 order += "ethernet _first_"
@@ -34,7 +34,7 @@ load {
         # max_threshold = 0.3
 }
 
-disk "/" {
+disk "/home" {
         # format = " hdd %avail "
         format = " ⛁ %avail "
 }
@@ -42,6 +42,12 @@ disk "/" {
 disk "/mnt/samba" {
         # format = " hdd %avail "
         format = " ⛃ %avail "
+}
+
+wireless _first_ {
+# if you use %speed, i3status requires root privileges
+        format_up = " w: %ip (%quality at %essid) "
+        format_down = " no lan "
 }
 
 ethernet _first_ {
@@ -71,5 +77,5 @@ battery all {
 
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
-        format = " %d.%m. %H:%M "
+        format = " %H:%M %d.%m.%Y"
 }

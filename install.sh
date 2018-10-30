@@ -1,5 +1,31 @@
 #!/bin/bash
 
+arch=$(cat arch)
+
+for package in $arch
+do
+	echo -n "Do you want to install $package packages?"
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		sudo pacman -S "$package"
+	fi
+done
+
+
+aur=$(cat aur)
+for package in $aur
+do
+	echo -n "Do you want to install $package packages?"
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ]; then
+		sudo trizen -S "$package"
+	fi
+done
+
+
+
+
+
 src="$PWD""/"
 dst="$HOME""/"
 files=$(cat files)

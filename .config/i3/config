@@ -296,7 +296,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 144 --primary
+exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 60.01 --primary
 exec --no-startup-id xinput set-prop 8 'Coordinate Transformation Matrix' 3 0 0 0 2.5 0 0 0 1
 exec --no-startup-id mpd
 
@@ -334,7 +334,8 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3status
+	status_command i3blocks
+#	status_command i3status
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'

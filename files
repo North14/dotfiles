@@ -4,3 +4,5 @@
 .config/i3/config
 .config/i3status/config
 .config/rofi/config
+.config/i3blocks/config
+.config/i3blocks/battery.sh

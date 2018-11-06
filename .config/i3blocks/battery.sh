@@ -1,13 +1,22 @@
 #!/bin/bash
 
+RED="#BF616A"
+YELLOW="#EBCB8B"
+GREEN="#A3BE8C"
+
 BAT=$(upower -i $(upower -e | grep '/battery') | grep --color=never -E percentage|xargs|cut -d' ' -f2|sed s/%//)
+STATE=$(upower -i $(upower -e | grep '/battery') | grep --color=never -E state|xargs|cut -d' ' -f2)
 
-# Full and short texts
-echo "Battery: $BAT"
-echo "BAT: $BAT"
+echo "Battery: $STATE $BAT%"
+echo "Bat: $BAT%"
 
-# Set urgent flag below 5% or use orange below 20%
-[ ${BAT%?} -le 5 ] && exit 33
-[ ${BAT%?} -le 20 ] && echo "#FF8000"
-
-exit 0
+if [ $BAT -gt 95 ]
+then
+	echo "$GREEN"
+elif [ $BAT -lt 5 ]
+then
+	echo "$RED"
+elif [ $BAT -lt 20 ]
+then
+	echo "$YELLOW"
+fi

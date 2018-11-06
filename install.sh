@@ -18,7 +18,7 @@ do
 	echo -n "Do you want to install $package packages?"
 	read answer
 	if [ "$answer" != "${answer#[Yy]}" ]; then
-		sudo trizen -S "$package"
+		trizen -S "$package"
 	fi
 done
 

@@ -15,11 +15,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 " autocomplete
 Plugin 'valloric/youcompleteme'
-" Completes ( with )
+" completes ( with )
 Plugin 'jiangmiao/auto-pairs'
 " Nord theme for vim
 Plugin 'arcticicestudio/nord-vim'
-
+" show css colors directly in file
+Plugin 'ap/vim-css-color'
+" fuzzy finder
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,15 +44,13 @@ set number
 set numberwidth=5
 set cursorline
 set relativenumber
+set incsearch
 
 syntax on
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 filetype plugin indent on    " required
-
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " Move temporary files to a secure location to protect against CVE-2017-1000382
 if exists('$XDG_CACHE_HOME')
@@ -77,6 +80,8 @@ if has('gui_running')
 endif
 
 " Syntax checker settings
+set laststatus=2
+set statusline+=\ %f
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -88,7 +93,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
 
-
+" YouCompleteMe
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 " let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 let g:ycm_global_ycm_extra_con = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+" Bind fzf to Ctrl-P
+nnoremap <silent> <C-p> :FZF -m<cr>
+
+" CtrlP
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'

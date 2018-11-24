@@ -18,8 +18,10 @@ plugins=(
   git
   git-extras
   archlinux
+  systemd
 )
 ZSH_THEME="clean"
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/home/username/scripts/commands/:$PATH"
+export PATH="/home/filip/codes/commands/:$PATH"
+export PATH="/home/filip/.local/bin:$PATH"

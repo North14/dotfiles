@@ -6,13 +6,16 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'sirtaj/vim-openscad'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " git wrapper
 Plugin 'tpope/vim-fugitive'
+" linter
+Plugin 'w0rp/ale'
 " syntax checker
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 " autocomplete
 Plugin 'valloric/youcompleteme'
 " completes ( with )
@@ -25,6 +28,8 @@ Plugin 'ap/vim-css-color'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+" use the virtualenv instead of global/user
+Plugin 'jmcantrell/vim-virtualenv'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,13 +88,16 @@ endif
 set laststatus=2
 set statusline+=\ %f
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" choosing the syntax checker for filetype:
+" https://github.com/vim-syntastic/syntastic/blob/master/doc/syntastic-checkers.txt
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
 

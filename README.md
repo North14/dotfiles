@@ -7,6 +7,7 @@
     - [Dunst](https://github.com/dunst-project/dunst) - A highly configurable and lightweight notification daemon.
 - [DejaVu Sans Mono](https://dejavu-fonts.github.io/) - Default font
 - [Wallpaper](Alfons.png) - credit to /u/ffisk
+- [Nord](https://github.com/arcticicestudio/nord) - An arctic, north-bluish color palette
 
 ## Tools
 - [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) - A customizable terminal emulator forked from rxvt

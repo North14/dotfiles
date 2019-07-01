@@ -1,4 +1,4 @@
-<h1 align="center">dotfiles/</h1>
+<h1 align="center">dotfiles</h1>
 
 ## WM
 - [i3](https://github.com/i3/i3) - A tiling window manager
@@ -6,7 +6,7 @@
     - [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen) - four_leaf_clover sweet looking lockscreen for linux system 
     - [Dunst](https://github.com/dunst-project/dunst) - A highly configurable and lightweight notification daemon.
 - [DejaVu Sans Mono](https://dejavu-fonts.github.io/) - Default font
-- [Wallpaper]() - credit to /u/ffisk
+- [Wallpaper](Alfons.png) - credit to /u/ffisk
 
 ## Tools
 - [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) - A customizable terminal emulator forked from rxvt

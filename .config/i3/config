@@ -16,7 +16,7 @@ hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 5
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -47,8 +47,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 exec --no-startup-id volumeicon
 ##bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
+#exec --no-startup-id pulseaudio
+exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
@@ -68,8 +68,8 @@ bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 # bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id scrot
-bindsym $mod+Print --release exec --no-startup-id scrot -s
+bindsym Print exec --no-startup-id teiler --screenshot
+bindsym $mod+Print --release exec --no-startup-id teiler --quick image area
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -161,6 +161,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -190,7 +191,7 @@ assign [class="Deluge"] $ws8
 assign [class="JDownloader"] $ws8
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
+#for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -219,6 +220,8 @@ for_window [class="chatterino"] floating enable
 for_window [class="calibre"] floating enable
 for_window [class="Lutris"] floating enable
 for_window [class="dolphin"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Thunar"] floating enable
 for_window [class="keepassxc"] floating enable
 for_window [class="Deadbeef"] floating enable
 for_window [class="OpenSCAD"] floating enable
@@ -237,17 +240,16 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
+set $Locker scrot ~/.cache/lock.png && betterlockscreen -u ~/.cache/lock.png && betterlockscreen -l dimblur
+set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 bindsym $mod+0 mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-set $mode_system (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-#    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym e exec --no-startup-id systemctl restart lightdm, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -278,9 +280,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 ##################
 ### exec stuff ###
 ##################
@@ -291,27 +290,30 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec thunar --daemon
 exec firefox
 exec discord
+# exec urxvt -e 6cord-git -c 6cord.toml
 exec jdownloader
-# exec deluge
+exec deluge
 
+exec --no-startup-id screenlayout.sh
+exec --no-startup-id setxkbmap -layout se
 exec --no-startup-id feh --bg-fill --randomize Pictures/background
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-# exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 144 --primary
+# exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 144 --primary
 # exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 60.01 --primary
 # exec --no-startup-id xinput set-prop 8 'Coordinate Transformation Matrix' 3 0 0 0 2.5 0 0 0 1
 exec --no-startup-id mpd
-# exec --no-startup-id polybar bar
 exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id lxsession
+exec --no-startup-id numlockx
+
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -443,24 +445,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-##########################
-### Plasma Integration ###
-##########################
-
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill, floating enable, border none
-# Kill the plasmashell
-# exec --no-startup-id killall plasmashell
-
-## Avoid tiling popups, dropdown windows from plasma
-# for the first time, manually resize them, i3 will remember the setting for floating windows
-for_window [class="plasmashell"] floating enable
-for_window [class="Plasma"] floating enable, border none
-for_window [title="plasma-desktop"] floating enable, border none
-for_window [title="win7"] floating enable, border none
-for_window [class="krunner"] floating enable, border none
-for_window [class="Kmix"] floating enable, border none
-for_window [class="Klipper"] floating enable, border none
-for_window [class="Plasmoidviewer"] floating enable, border none

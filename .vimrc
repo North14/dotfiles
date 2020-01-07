@@ -2,14 +2,16 @@ if &compatible
   set nocompatible
 endif
 
+set shell=bash
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'sirtaj/vim-openscad'
 " NERDTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
 " git wrapper
 Plugin 'tpope/vim-fugitive'
 " linter
@@ -53,7 +55,7 @@ set incsearch
 
 syntax on
 
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 filetype plugin indent on    " required
 

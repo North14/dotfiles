@@ -34,6 +34,20 @@ markup=none
 #command=i3-msg -q restart
 #interval=0
 
+[ping]
+command=~/.config/i3blocks/ping_google.sh
+interval=20
+separator=false
+
+[ping]
+command=~/.config/i3blocks/ping_lux.sh
+interval=10
+separator=false
+
+[ping]
+command=~/.config/i3blocks/ping_sto.sh
+interval=30
+
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
@@ -63,7 +77,7 @@ interval=30
 
 [samba]
 label=NAS
-command=df -h /mnt/samba | awk '{ print $3 }' | tail -n 1
+command=df -h /mnt/samba | awk '{ print $4 }' | tail -n 1
 separator=false
 interval=30
 

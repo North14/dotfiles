@@ -185,6 +185,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 # assign [class="keepassxc"] $ws5
+assign [class="Thunderbird"] $ws5
 assign [class="Steam"] $ws6
 assign [class="discord"] $ws7
 assign [class="Deluge"] $ws8
@@ -196,6 +197,7 @@ for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Qalculate-gtk"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
@@ -216,7 +218,6 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="chatterino"] floating enable
 for_window [class="calibre"] floating enable
 for_window [class="Lutris"] floating enable
 for_window [class="dolphin"] floating enable
@@ -226,6 +227,7 @@ for_window [class="keepassxc"] floating enable
 for_window [class="Deadbeef"] floating enable
 for_window [class="OpenSCAD"] floating enable
 for_window [class="cura"] floating enable
+for_window [class="Wireshark"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -293,6 +295,7 @@ exec discord
 # exec urxvt -e 6cord-git -c 6cord.toml
 exec jdownloader
 exec deluge
+exec thunderbird
 
 exec --no-startup-id screenlayout.sh
 exec --no-startup-id setxkbmap -layout se
@@ -395,7 +398,7 @@ bindsym $mod+m bar mode toggle
 
 # Set inner/outer gaps
 gaps inner 8
-gaps outer 0
+gaps outer 2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

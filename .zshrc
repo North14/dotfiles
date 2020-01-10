@@ -26,6 +26,9 @@ plugins=(
 ZSH_THEME="clean"
 source $ZSH/oh-my-zsh.sh
 
+alias vim=nvim
+alias vi=nvim
+
 export PATH="$HOME/codes/commands/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 

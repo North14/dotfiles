@@ -229,6 +229,11 @@ for_window [class="OpenSCAD"] floating enable
 for_window [class="cura"] floating enable
 for_window [class="Wireshark"] floating enable
 
+for_window [class="^Gimp$" title="^GNU Image Manipulation Program$"] floating disabled
+for_window [class="^Gimp$" title=" ? GIMP$"] floating disabled
+for_window [class="^Gimp$" title="Tool Options$"] floating enable
+for_window [class="^Gimp$" title="^Quit GIMP$"] floating enable
+
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -242,7 +247,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
-set $Locker scrot ~/.cache/lock.png && betterlockscreen -u ~/.cache/lock.png && betterlockscreen -l dimblur
+set $Locker scrot -o ~/.cache/lock.png && betterlockscreen -u ~/.cache/lock.png && betterlockscreen -l dimblur
 set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 bindsym $mod+0 mode "$mode_system"
 mode "$mode_system" {
@@ -316,6 +321,7 @@ exec --no-startup-id mpd
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id lxsession
 exec --no-startup-id numlockx
+exec --no-startup-id conky
 
 
 # Color palette used for the terminal ( ~/.Xresources file )

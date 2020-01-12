@@ -13,6 +13,6 @@
 - [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) - A customizable terminal emulator forked from rxvt
     - [Zsh](https://github.com/zsh-users/zsh) - A shell designed for interactive use, although it is also a powerful scripting language
         - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - An open source, community-driven framework for managing your Zsh configuration
-- [vim](https://github.com/vim/vim) - Text editor
-    - [vundle](https://github.com/VundleVim/Vundle.vim) - Vundle, the plug-in manager for Vim
+- [neovim](https://github.com/neovim/neovim) - Vim-fork
+    - [vim-plug](https://github.com/junegunn/vim-plug) - A minimalist Vim plugin manager
 - [teiler](https://github.com/carnager/teiler) - A little screenshot tool written in bash

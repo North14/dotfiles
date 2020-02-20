@@ -1,0 +1,486 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+foreground = #D8DEE9
+background = #2E3440
+
+nord0 = #2E3440                                                                       
+nord1 = #3B4252
+nord2 = #434C5E     
+nord3 = #4C566A     
+nord4 = #D8DEE9     
+nord5 = #E5E9F0     
+nord6 = #ECEFF4     
+nord7 = #8FBCBB     
+nord8 = #88C0D0     
+nord9 = #81A1C1     
+nord10 = #5E81AC     
+nord11 = #BF616A     
+nord12 = #D08770     
+nord13 = #EBCB8B     
+nord14 = #A3BE8C     
+nord15 = #B48EAD
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/bar_main]
+monitor = ${env:MONITOR:DP-4}
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-top-size = 1
+border-top-color = ${colors.nord1}
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = dejavusansmononerdfont:pixelsize=10;1
+
+modules-left = i3
+modules-center = xwindow 
+modules-right = volume ping_google ping_lux eth date powermenu
+
+tray-position = right
+tray-detached = false
+;tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+bottom = true
+
+[bar/bar_side]
+monitor = ${env:MONITOR:HDMI-0}
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-top-size = 1
+border-top-color = ${colors.nord1}
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = dejavusansmononerdfont:pixelsize=10;1
+
+modules-left = i3
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+bottom = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+label-layout = %{F#55}%{F-} %layout%
+label-layout-underline = ${colors.nord10}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.nord10}
+label-indicator-underline = ${colors.nord10}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+mount-2 = /invalid/mountpoint
+
+label-mounted = %mountpoint%: %percentage_free%%
+
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = ${colors.nord6}
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.nord6}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.nord6}
+label-empty-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+pin-workspaces = true
+
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+label-mode-font = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %icon%
+label-focused-foreground = ${colors.nord15}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.background}
+label-focused-padding = 3
+label-focused-font = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-unfocused = %icon%
+label-unfocused-padding = 3
+label-unfocused-font = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-visible = %icon%
+label-visible-underline = #555555
+label-visible-padding = 3
+label-visible-font = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 3
+label-urgent-font = 2
+
+
+
+[module/mpd]
+type = internal/mpd
+
+format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = ${colors.primary}
+toggle-off-foreground = #66
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.nord6}
+format-underline = #f90000
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.nord6}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlan1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.nord14}
+format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %essid%
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.nord6}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.nord6}
+
+[module/eth]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+format-connected-underline = ${colors.nord14}
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.nord6}
+label-connected = %local_ip%
+
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.nord6}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %{A:gsimplecal &:}%d-%m-%Y %{A}
+date-alt = %A, %d %B %Y
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.nord6}
+format-underline = ${colors.nord15}
+
+label = %date%%time%
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted = ﱝ Muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+;format-muted-prefix = " "
+;format-muted-foreground = ${colors.nord6}
+;label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.nord6}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 94
+label-full =
+
+time-format = %H:%M
+
+label-discharging = Discharging %percentage%% %time%
+
+format-charging = <label-charging> <animation-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.nord10}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.nord6}
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.nord10}
+label-close =  cancel
+label-close-foreground = ${colors.nord10}
+label-separator = |
+label-separator-foreground = ${colors.nord6}
+
+menu-0-0 = cancel
+menu-0-0-exec = menu-open-0
+menu-0-1 = reboot
+menu-0-1-exec = sudo reboot
+
+menu-1-0 = power off
+menu-1-0-exec = sudo poweroff
+menu-1-1 = cancel
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = reboot
+menu-2-0-exec = menu-open-1
+menu-2-1 = power off
+menu-2-1-exec = menu-open-2
+
+;I've changed /etc/sudoers with $visudo adding:
+;<myUserName> ALL=(ALL)NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown
+
+; vim:ft=dosini
+
+
+; [module/music]
+; type = custom/script
+; interval = 1
+; 
+; tail = true
+; label = %output:0:45:...%
+; exec = ~/.config/polybar/mpris-colors.sh
+; click-left = playerctl previous
+; click-middle = playerctl play-pause
+; click-right = playerctl next
+; 
+; ;label-font = 2
+
+[module/ping_lux]
+interval = 5
+type = custom/script
+exec = ./ping.sh lux.valve.net -n Lux -c 10
+
+[module/ping_google]
+interval = 10
+type = custom/script
+exec = ./ping.sh google.com -n Google -c 8

@@ -5,7 +5,7 @@
     - [i3blocks](https://github.com/vivien/i3blocks) - A feed generator for text based status bars
     - [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen) - four_leaf_clover sweet looking lockscreen for linux system 
     - [Dunst](https://github.com/dunst-project/dunst) - A highly configurable and lightweight notification daemon.
-- [DejaVu Sans Mono](https://dejavu-fonts.github.io/) - Default font
+- [DejaVu Sans Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts) - DejaVu Sans Mono with icon support
 - [Wallpaper](Alfons.png) - credit to /u/ffisk
 - [Nord](https://github.com/arcticicestudio/nord) - An arctic, north-bluish color palette
 
@@ -16,3 +16,13 @@
 - [neovim](https://github.com/neovim/neovim) - Vim-fork
     - [vim-plug](https://github.com/junegunn/vim-plug) - A minimalist Vim plugin manager
 - [teiler](https://github.com/carnager/teiler) - A little screenshot tool written in bash
+
+## How-to
+'''bash
+sudo pacman -S - < packages_arch.txt
+'''
+
+'''bash
+trizen -S - < packages_aur.txt'''
+# Manual installations
+oh-my-zsh

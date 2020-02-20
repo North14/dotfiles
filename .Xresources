@@ -41,7 +41,7 @@
 Xcursor.theme: xcursor-breeze-snow
 Xcursor.size:                     0
 
-URxvt.font:                       xft:DejaVu Sans Mono:size=11,xft:Symbola:size=11
+URxvt.font:                       xft:DejaVu Sans Mono Nerd Font:size=11,xft:Symbola:size=11
 
 URxvt.perl-ext-common:            tabbed,resize-font,default,matcher
 URxvt.url-launcher:               /usr/bin/xdg-open

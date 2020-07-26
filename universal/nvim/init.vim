@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nord theme for vim
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 " show colors directly in file
 Plug 'ap/vim-css-color'
 " fuzzy finder
@@ -30,7 +31,7 @@ Plug 'jiangmiao/auto-pairs'
 call plug#end()            " required
 
 " set Nord as colorscheme
-colorscheme nord
+colorscheme gruvbox
 
 set autoindent
 set nowrap
@@ -131,3 +132,5 @@ call coc#add_extension(
   \ 'coc-lists',
   \ 'coc-snippets'
   \)
+
+hi Normal ctermbg=NONE guibg=NONE

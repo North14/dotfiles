@@ -1,0 +1,120 @@
+! Nord color scheme
+! Polar Night
+! #define coloBG #2E3440
+! #define coloBG1 #3B4252
+! #define coloBG2 #434C5E
+! #define coloBG3 #4C566A
+! Snow Storm
+! #define coloFG #D8DEE9
+! #define coloFG1 #E5E9F0
+! #define coloFG2 #ECEFF4
+! Frost
+! #define coloAqua #8FBCBB
+! #define coloAqua #88C0D0
+! #define coloBlue #81A1C1
+! #define coloBlue #5E81AC
+! Aurora
+! #define coloRed #BF616A
+! #define coloOrange #D08770
+! #define coloYellow #EBCB8B
+! #define coloGreen #A3BE8C
+! #define coloPurple #B48EAD
+
+! Gruvbox color scheme
+! BG colors
+#define coloBG #282828
+#define coloBG_h #1d2021
+#define coloBG_s #32302f
+#define coloBG0 #282828
+#define coloBG1 #3c3836
+#define coloBG2 #504945
+#define coloBG3 #665c54
+#define coloBG4 #7c6f64
+! FG colors
+#define coloFG #ebdbb2
+#define coloFG0 #fbf1c7
+#define coloFG1 #ebdbb2
+#define coloFG2 #d5c4a1
+#define coloFG3 #bdae93
+#define coloFG4 #a89984
+! Dark colors
+#define coloDarkRed #cc241d
+#define coloDarkGreen #98971a
+#define coloDarkYellow #d79921
+#define coloDarkBlue #458588
+#define coloDarkPurple #b16286
+#define coloDarkAqua #689d6a
+#define coloDarkOrange #d65d0e
+! Light colors
+#define coloRed #fb4934
+#define coloGreen #b8bb26
+#define coloYellow #fabd2f
+#define coloBlue #83a598
+#define coloPurple #d3869b
+#define coloAqua #8ec07c
+#define coloOrange #fe8019
+
+*.foreground:   coloFG
+*.background:   coloBG
+*.cursorColor:  coloFG
+*fading: 35
+*fadeColor: coloBG
+
+! Colors in order are: black, red, green, yellow, blue, purple, aqua, white
+! Dark colors
+*.color0: coloBG1
+*.color1: coloDarkRed
+*.color2: coloDarkGreen
+*.color3: coloDarkYellow
+*.color4: coloDarkBlue
+*.color5: coloDarkPurple
+*.color6: coloDarkAqua
+*.color7: coloFG1
+
+! Light colors
+*.color8: coloBG3
+*.color9: coloRed
+*.color10: coloGreen
+*.color11: coloYellow
+*.color12: coloBlue
+*.color13: coloPurple
+*.color14: coloAqua
+*.color15: coloFG2
+
+Xcursor.theme: xcursor-breeze-snow
+Xcursor.size:                     0
+
+URxvt.font:                       xft:DejaVuSansMono Nerd Font:size=11,xft:Symbola:size=11
+
+URxvt.perl-ext-common:            tabbed,resize-font,default,matcher
+URxvt.url-launcher:               /usr/bin/xdg-open
+URxvt.matcher.button:             1
+URxvt.matcher.rend.0:             Uline Bold fg7
+URxvt.fading:                     50
+URxvt.depth:                      32
+URxvt.background:                 [100]coloBG
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*background:                 black
+URxvt*foreground:                 grey
+URxvt*saveLines:                  5000
+
+! for 'fake' transparency (without Compton) uncomment the following three lines
+! URxvt*inheritPixmap:            true
+! URxvt*transparent:              true
+! URxvt*shading:                  138
+
+! Normal copy-paste keybindings without perls
+URxvt.iso14755:                   false
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+!Xterm escape codes, word by word movement
+URxvt.keysym.Control-Left:        \033[1;5D
+URxvt.keysym.Shift-Control-Left:  \033[1;6D
+URxvt.keysym.Control-Right:       \033[1;5C
+URxvt.keysym.Shift-Control-Right: \033[1;6C
+URxvt.keysym.Control-Up:          \033[1;5A
+URxvt.keysym.Shift-Control-Up:    \033[1;6A
+URxvt.keysym.Control-Down:        \033[1;5B
+URxvt.keysym.Shift-Control-Down:  \033[1;6B

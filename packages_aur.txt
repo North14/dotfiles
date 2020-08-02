@@ -1,8 +1,0 @@
-autokey
-betterlockscreen
-clipit
-imgurbash2
-nerd-fonts-dejavu-complete
-rxvt-unicode-patched
-teiler-git
-ttf-symbola

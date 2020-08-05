@@ -1,4 +1,4 @@
-;=====================================================
+;#B48EAD=====================================================
 ;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
@@ -8,25 +8,39 @@
 ;=====================================================
 
 [colors]
-foreground = #D8DEE9
-background = #2E3440
-
-nord0 = #2E3440                                                                       
-nord1 = #3B4252
-nord2 = #434C5E     
-nord3 = #4C566A     
-nord4 = #D8DEE9     
-nord5 = #E5E9F0     
-nord6 = #ECEFF4     
-nord7 = #8FBCBB     
-nord8 = #88C0D0     
-nord9 = #81A1C1     
-nord10 = #5E81AC     
-nord11 = #BF616A     
-nord12 = #D08770     
-nord13 = #EBCB8B     
-nord14 = #A3BE8C     
-nord15 = #B48EAD
+; Gruvbox color scheme
+; BG colors
+coloBG = #282828
+coloBG_h = #1d2021
+coloBG_s = #32302f
+coloBG0 = #282828
+coloBG1 = #3c3836
+coloBG2 = #504945
+coloBG3 = #665c54
+coloBG4 = #7c6f64
+; FG colors
+coloFG = #ebdbb2
+coloFG0 = #fbf1c7
+coloFG1 = #ebdbb2
+coloFG2 = #d5c4a1
+coloFG3 = #bdae93
+coloFG4 = #a89984
+; Dark colors
+coloDarkRed = #cc241d
+coloDarkGreen = #98971a
+coloDarkYellow = #d79921
+coloDarkBlue = #458588
+coloDarkPurple = #b16286
+coloDarkAqua = #689d6a
+coloDarkOrange = #d65d0e
+; Light colors
+coloRed = #fb4934
+coloGreen = #b8bb26
+coloYellow = #fabd2f
+coloBlue = #83a598
+coloPurple = #d3869b
+coloAqua = #8ec07c
+coloOrange = #fe8019
 
 [global/wm]
 margin-top = 5
@@ -39,8 +53,8 @@ height = 27
 offset-x = 0
 offset-y = 0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.coloBG}
+foreground = ${colors.coloFG}
 
 overline-size = 2
 overline-color = #f00
@@ -48,7 +62,7 @@ underline-size = 2
 underline-color = #00f
 
 border-top-size = 1
-border-top-color = ${colors.nord1}
+border-top-color = ${colors.coloBG3}
 
 padding-left = 0
 padding-right = 2
@@ -59,7 +73,7 @@ font-0 = dejavusansmononerdfont:pixelsize=10;1
 
 modules-left = i3
 modules-center = xwindow 
-modules-right = volume ping_google ping_lux eth date powermenu
+modules-right = volume ping_google ping_lux eth filesystem date powermenu
 
 tray-position = right
 tray-detached = false
@@ -86,8 +100,8 @@ height = 27
 offset-x = 0
 offset-y = 0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.coloBG}
+foreground = ${colors.coloFG}
 
 overline-size = 2
 overline-color = #f00
@@ -95,7 +109,7 @@ underline-size = 2
 underline-color = #00f
 
 border-top-size = 1
-border-top-color = ${colors.nord1}
+border-top-color = ${colors.coloBG3}
 
 padding-left = 0
 padding-right = 2
@@ -126,30 +140,30 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 label-layout = %{F#55}%{F-} %layout%
-label-layout-underline = ${colors.nord10}
+label-layout-underline = ${colors.coloBlue}
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.nord10}
-label-indicator-underline = ${colors.nord10}
+label-indicator-background = ${colors.coloBlue}
+label-indicator-underline = ${colors.coloBlue}
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home
-mount-2 = /invalid/mountpoint
+mount-1 = /mnt/samba
 
-label-mounted = %mountpoint%: %percentage_free%%
+label-mounted = %mountpoint%: %free%
+label-mounted-underline = ${colors.coloGreen}
 
-label-unmounted = %mountpoint%: not mounted
-label-unmounted-foreground = ${colors.nord6}
+label-unmounted = %mountpoint%: -
+label-unmounted-underline = ${colors.coloRed}
 
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.nord6}
+label-focused-background = ${colors.coloFG2}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -161,7 +175,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = %index%
-label-empty-foreground = ${colors.nord6}
+label-empty-foreground = ${colors.coloFG2}
 label-empty-padding = 2
 
 [module/i3]
@@ -199,9 +213,9 @@ label-mode-font = 2
 ;   %output%
 ; Default: %icon%  %name%
 label-focused = %icon%
-label-focused-foreground = ${colors.nord15}
-label-focused-background = ${colors.background}
-label-focused-underline = ${colors.background}
+label-focused-foreground = ${colors.coloPurple}
+label-focused-background = ${colors.coloBG}
+label-focused-underline = ${colors.coloBG}
 label-focused-padding = 3
 label-focused-font = 2
 
@@ -263,7 +277,7 @@ toggle-off-foreground = #66
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.nord6}
+format-prefix-foreground = ${colors.coloFG2}
 format-underline = #f90000
 label = %percentage%%
 
@@ -271,7 +285,7 @@ label = %percentage%%
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.nord6}
+format-prefix-foreground = ${colors.coloFG2}
 format-underline = #4bffdc
 label = %percentage_used%%
 
@@ -281,33 +295,33 @@ interface = wlan1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${colors.nord14}
-format-disconnected-underline = ${self.format-connected-underline}
+format-connected-underline = ${colors.coloGreen}
+format-disconnected-underline = ${colors.coloRed}
 
 label-connected = %essid%
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.nord6}
+label-disconnected-foreground = ${colors.coloFG2}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.nord6}
+ramp-signal-foreground = ${colors.coloFG2}
 
 [module/eth]
 type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-underline = ${colors.nord14}
+format-connected-underline = ${colors.coloGreen}
 format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.nord6}
+format-connected-foreground-foreground = ${colors.coloFG2}
 label-connected = %local_ip%
 
-format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected-underline = ${colors.coloRed}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.nord6}
+label-disconnected-foreground = ${colors.coloFG2}
 
 [module/date]
 type = internal/date
@@ -320,8 +334,8 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = " "
-format-prefix-foreground = ${colors.nord6}
-format-underline = ${colors.nord15}
+format-prefix-foreground = ${colors.coloFG2}
+format-underline = ${colors.coloBlue}
 
 label = %date%%time%
 
@@ -353,7 +367,7 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 ;format-muted-prefix = " "
-;format-muted-foreground = ${colors.nord6}
+;format-muted-foreground = ${colors.coloFG2}
 ;label-muted = sound muted
 
 bar-volume-width = 10
@@ -372,7 +386,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.nord6}
+bar-volume-empty-foreground = ${colors.coloFG2}
 
 [module/battery]
 type = internal/battery
@@ -422,12 +436,12 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.nord10}
+label-warn-foreground = ${colors.coloBlue}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.nord6}
+ramp-foreground = ${colors.coloFG2}
 
 [module/powermenu]
 type = custom/menu
@@ -435,11 +449,11 @@ type = custom/menu
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.nord10}
+label-open-foreground = ${colors.coloBlue}
 label-close =  cancel
-label-close-foreground = ${colors.nord10}
+label-close-foreground = ${colors.coloBlue}
 label-separator = |
-label-separator-foreground = ${colors.nord6}
+label-separator-foreground = ${colors.coloFG2}
 
 menu-0-0 = cancel
 menu-0-0-exec = menu-open-0
@@ -478,9 +492,9 @@ menu-2-1-exec = menu-open-2
 [module/ping_lux]
 interval = 5
 type = custom/script
-exec = ./ping.sh lux.valve.net -n Lux -c 10
+exec = ~/.config/polybar/ping.sh lux.valve.net -n Lux -c 10
 
 [module/ping_google]
 interval = 10
 type = custom/script
-exec = ./ping.sh google.com -n Google -c 8
+exec = ~/.config/polybar/ping.sh google.com -n Google -c 8

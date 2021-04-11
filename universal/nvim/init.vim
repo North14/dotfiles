@@ -63,6 +63,9 @@ let &g:undodir=&g:directory . '/vim/undo//'
 let &g:backupdir=&g:directory . '/vim/backup//'
 let &g:directory.='/vim/swap//'
 
+" Compile latex file to pdf
+autocmd BufWritePost *.tex !latexmk -pdf -shell-escape
+
 " Make shift-insert work like in Xterm
 if has('gui_running')
 	map <S-Insert> <MiddleMouse>

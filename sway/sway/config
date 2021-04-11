@@ -20,7 +20,7 @@ exec autotiling
 exec wal -R
 exec wal_steam -w
 exec pywalfox update
-exec pulseaudio --daemonize
+# exec pulseaudio --daemonize
 exec nm-applet --indicator
 exec wl-paste -t text --watch clipman store
 
@@ -32,7 +32,7 @@ exec wl-paste -t text --watch clipman store
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Your preferred terminal emulator
-set $term alacritty -e tmux
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -138,11 +138,13 @@ bindsym $mod+Shift+q kill
 # Start your launcher
 bindsym $mod+D exec $menu
 
-# Lauch custom application
-bindsym $mod+K exec keepassxc
+# start ssh launcher
+bindsym $mod+Shift+d exec rofi -show ssh
 
 # Screenshotting
-bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
+bindsym --release Print exec sh $HOME/.config/sway/screenshot.sh -u nuuls
+bindsym --release Shift+Print exec sh $HOME/.config/sway/screenshot.sh -a -u nuuls
+bindsym --release $mod+Print exec sh $HOME/.config/sway/screenshot.sh -c
 
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -159,7 +161,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
-#
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 # Or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -194,7 +199,7 @@ bindsym $mod+Ctrl+6 move container to workspace 6
 bindsym $mod+Ctrl+7 move container to workspace 7
 bindsym $mod+Ctrl+8 move container to workspace 8
 bindsym $mod+Ctrl+9 move container to workspace 9
-# Move focused container to workspace
+# Move focused container to workspace and switch to it
 bindsym $mod+Shift+1 move container to workspace 1; workspace 1
 bindsym $mod+Shift+2 move container to workspace 2; workspace 2
 bindsym $mod+Shift+3 move container to workspace 3; workspace 3
@@ -212,8 +217,9 @@ bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+v splith
-bindsym $mod+c splitv
+# bindsym $mod+h splith;exec notify-send 'tile horizontally'
+# bindsym $mod+v splitv;exec notify-send 'tile vertically'
+bindsym $mod+v split toggle
 
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
@@ -226,7 +232,7 @@ bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+Space floating toggle
 # Swap focus between the tiling area and the floating area
-bindsym $mod+Alt+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
@@ -267,6 +273,49 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# Open specific applications in floating mode
+#for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Qalculate-gtk"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+for_window [class="calibre"] floating enable
+for_window [class="Lutris"] floating enable
+for_window [class="dolphin"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Thunar"] floating enable
+for_window [class="keepassxc"] floating enable
+for_window [class="Deadbeef"] floating enable
+for_window [class="OpenSCAD"] floating enable
+for_window [class="cura"] floating enable
+for_window [class="Wireshark"] floating enable
+
+for_window [class="^Gimp$" title="^GNU Image Manipulation Program$"] floating disabled
+for_window [class="^Gimp$" title=" ? GIMP$"] floating disabled
+for_window [class="^Gimp$" title="Tool Options$"] floating enable
+for_window [class="^Gimp$" title="^Quit GIMP$"] floating enable
 
 #
 # Status Bar:

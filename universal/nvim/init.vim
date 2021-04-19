@@ -13,8 +13,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Nord theme for vim
-Plug 'arcticicestudio/nord-vim'
+" Color theme for vim
+" Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 " show colors directly in file
 Plug 'ap/vim-css-color'
@@ -26,11 +26,12 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
+Plug 'lervag/vimtex'
 Plug 'jiangmiao/auto-pairs'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
-" set Nord as colorscheme
+" set colorscheme
 colorscheme gruvbox
 
 set autoindent
@@ -63,8 +64,24 @@ let &g:undodir=&g:directory . '/vim/undo//'
 let &g:backupdir=&g:directory . '/vim/backup//'
 let &g:directory.='/vim/swap//'
 
-" Compile latex file to pdf
-autocmd BufWritePost *.tex !latexmk -pdf -shell-escape
+" Latex stuff
+" Make zathura default view and latex default tex flavor
+let g:tex_flavor='latex'
+let g:vimtex_view_method = 'zathura'
+
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
+" Run current file using <F7>
+nmap <F7> :w<cr>:!clear;"%:p"<cr>
 
 " Make shift-insert work like in Xterm
 if has('gui_running')

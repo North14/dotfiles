@@ -13,9 +13,6 @@ c.tabs.background = True
 # only show the tab bar if there are multiple tabs
 c.tabs.show = 'multiple'
 
-# only show the statusbar if in a mode
-c.statusbar.show = 'in-mode'
-
 # various delays
 c.tabs.show_switching_delay = 2000
 c.messages.timeout = 5000
@@ -29,7 +26,7 @@ c.editor.encoding = 'utf-8'
 c.content.blocking.method = 'both'
 
 # allow desktop notifications
-c.content.notifications = True
+c.content.notifications.enabled = True
 
 # default character encoding
 c.content.default_encoding = 'utf-8'
@@ -322,13 +319,8 @@ c.colors.tabs.pinned.selected.odd.bg = black
 c.colors.tabs.pinned.selected.odd.fg = brightwhite
 
 
-# OTHER # OTHER # OTHER # OTHER # OTHER # OTHER # OTHER # OTHER # OTHER #
-
 # default background color for webpages if unset
 c.colors.webpage.bg = black
 
 # force `prefers-color-scheme: dark` for websites.
 c.colors.webpage.preferred_color_scheme = "dark"
-
-# enable dark theme stuff
-# c.colors.webpage.darkmode.enabled = True

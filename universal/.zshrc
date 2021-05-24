@@ -41,3 +41,8 @@ PERL_MM_OPT="INSTALL_BASE=/home/filip/perl5"; export PERL_MM_OPT;
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+kitty + complete setup zsh | source /dev/stdin
+
+# wayland exports
+export _JAVA_AWT_WM_NONREPARENTING=1
